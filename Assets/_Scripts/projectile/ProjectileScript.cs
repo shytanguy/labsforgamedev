@@ -9,7 +9,20 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField] private float _speed;
 
     [SerializeField] private LayerMask _targets;
-    void Awake()
+
+    [SerializeField] private float _damage;
+
+    public static ShootScript shooter;
+
+    public void UpgradeDamage(float additionalDamage)
+    {
+        _damage += additionalDamage;
+    }
+    public void UpgradeSpeed(float speedUpgrade)
+    {
+        _speed += speedUpgrade;
+    }
+    void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
 
@@ -20,6 +33,7 @@ public class ProjectileScript : MonoBehaviour
     {
         if ((_targets.value & (1 << other.gameObject.layer)) > 0)
         {
+          other.GetComponent<Health>().Damage(_damage);
 
         }
         Destroy(gameObject);

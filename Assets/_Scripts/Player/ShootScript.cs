@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ShootScript : MonoBehaviour
+public class ShootScript : MonoBehaviour, IObserver
 {
-    [SerializeField] private GameObject _projectile;
+    [SerializeField] private ProjectileScript _projectile;
 
     private PlayerInput _playerInput;
 
@@ -20,16 +20,22 @@ public class ShootScript : MonoBehaviour
     [SerializeField] private AudioClip _shootSfx;
 
     [SerializeField] private GameObject _effect;
+
+    [SerializeField] private float _additionalDamage;
+    [SerializeField] private float _additionalProjectileSpeed;
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
 
         _source = GetComponent<AudioSource>();
     }
+    
 
     private void Start()
     {
         _playerInput.actions["Fire"].performed += Shoot;
+
+        TargetBonusManager.instance.AddObserver(this);
     }
     private IEnumerator Reload()
     {
@@ -44,12 +50,24 @@ public class ShootScript : MonoBehaviour
     {   
         if (_canShoot)
         {
-            Instantiate(_projectile, _shootPoint.position, _shootPoint.rotation);
+           ProjectileScript projectile= Instantiate(_projectile, _shootPoint.position, _shootPoint.rotation);
+
+            projectile.UpgradeDamage(_additionalDamage);
+
+            projectile.UpgradeSpeed(_additionalProjectileSpeed);
+
             Instantiate(_effect, _shootPoint.position, _shootPoint.rotation);
             _canShoot = false;
             StartCoroutine(Reload());
             _source.PlayOneShot(_shootSfx);
         }
 
+    }
+
+    public void Observe(float damage, float speed, float time)
+    {
+        _additionalDamage = damage;
+
+        _additionalProjectileSpeed = speed;
     }
 }

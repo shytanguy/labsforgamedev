@@ -14,14 +14,14 @@ public class ListWrap
 }
 public class RecordSerializer 
 {
-    private static string filePath = Directory.GetCurrentDirectory() + "/saves/records.json";
+    private static string filePath = Directory.GetCurrentDirectory() + "/records.json";
     public static List<float> PlayerRecords = new List<float>();
-    public static void SaveData(int record)
+    public static void SaveData(float record)
     {
         PlayerRecords.Add(record);
         ListWrap wrapper = new ListWrap(PlayerRecords);
         string json = JsonUtility.ToJson(wrapper);
-        File.WriteAllText(filePath, json);
+        File.WriteAllTextAsync(filePath, json);
     }
 
     public static void LoadData()
@@ -29,6 +29,7 @@ public class RecordSerializer
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
+
             ListWrap wrapper = JsonUtility.FromJson<ListWrap>(json);
             PlayerRecords = wrapper.List;
         }

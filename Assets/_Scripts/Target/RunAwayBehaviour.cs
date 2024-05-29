@@ -10,6 +10,6 @@ public class RunAwayBehaviour : IMoveStrategy
 
         transform.Translate(speed * new Vector3(direction.x, 0, direction.z));
 
-        transform.forward = direction;
+        transform.forward = -direction;
     }
 }

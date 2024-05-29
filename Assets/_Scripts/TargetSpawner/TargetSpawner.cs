@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform[] _Spawners;
+
+    [SerializeField] private Health[] _prefabToSpawn;
+
+    [SerializeField] private float _spawnCoolDown;
+    private void SpawnTarget()
     {
-        
+     Instantiate(_prefabToSpawn[Random.Range(0, _prefabToSpawn.Length)], _Spawners[Random.Range(0, _Spawners.Length)].position, Quaternion.identity);
+
+
+    }
+    private void Start()
+    {
+        InvokeRepeating(nameof(SpawnTarget), 3, _spawnCoolDown);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2040163444042400948}
   - component: {fileID: 4806290065304727256}
   - component: {fileID: 7050449079068706238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.26772904, y: -0.017507326, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9687, y: 1.9687, z: 1.9687}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8414960914891156045}
@@ -99,7 +99,8 @@ MonoBehaviour:
   _speed: 40
   _targets:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  _damage: 40
 --- !u!114 &7050449079068706238
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,5 +8,6 @@ public class MoveInDirection : IMoveStrategy
     public void Move(Transform transform, float speed, Transform target)
     {
         transform.Translate(speed * _direction);
+        transform.forward = _direction;
     }
 }
