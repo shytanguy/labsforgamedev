@@ -22,6 +22,7 @@ File.WriteAllText(filePath, json);
         {
             string json = File.ReadAllText(filePath);
             Wrapper<int> wrapper = JsonUtility.FromJson<Wrapper<int>>(json);
+            if (wrapper!=null)
             records = wrapper.intList;
         }
         else

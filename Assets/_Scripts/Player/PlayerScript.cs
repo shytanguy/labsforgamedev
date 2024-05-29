@@ -19,6 +19,13 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] private GameObject _pea;
 
+    [SerializeField] private float _sense=10;
+
+    [SerializeField] private AudioSource _source;
+
+    [SerializeField] private AudioClip _shoot;
+
+    [SerializeField] private GameObject _effect;
     private void OnEnable()
     {
         _controls.actions["Attack"].performed += Shoot;
@@ -34,7 +41,7 @@ public class PlayerScript : MonoBehaviour
 
         _rigidBody.velocity =_speed* transform.TransformDirection( new Vector3(direction.x, 0, direction.y));
 
-        Vector2 rotation = _controls.actions["Rotate"].ReadValue<Vector2>();
+        Vector2 rotation = _sense* _controls.actions["Rotate"].ReadValue<Vector2>();
 
         _yRotation += -rotation.y;
 
@@ -47,7 +54,9 @@ public class PlayerScript : MonoBehaviour
 
     private void Shoot(InputAction.CallbackContext context)
     {
-        Instantiate(_pea, _head.position, _head.rotation);
+        Instantiate(_pea, _head.position+transform.forward, _head.rotation);
+        Instantiate(_effect, _head.position + transform.forward, _head.rotation);
+        _source.PlayOneShot(_shoot);
     }
 
    
