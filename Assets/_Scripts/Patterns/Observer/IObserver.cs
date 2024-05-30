@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IObserver 
 {
-    public void Observe(float damage, float speed, float time);
+    public void Observe();
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IObserver
 {
     public static TargetFlyweight flyweight;
 
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
             strategy = new EscapeStrategy();
         }
         _hp = TotalHp;
-
+        EnemyBehaviourGlobal.instance.AddObserver(this);
        
     }
     private void FixedUpdate()
@@ -52,6 +52,22 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(brokenBox, transform.position, transform.rotation);
+        }
+    }
+
+    public void Observe()
+    {
+        
+        if (type == StrategyType.follow)
+        {
+            type = StrategyType.escape;
+            strategy = new EscapeStrategy();
+         
+        }
+        else
+        {
+            type = StrategyType.follow;
+            strategy = new FollowStrategy();
         }
     }
 }

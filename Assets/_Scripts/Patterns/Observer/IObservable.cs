@@ -9,5 +9,5 @@ public interface IObservable {
 
     public void RemoveObserver(IObserver iobserver);
 
-    public void NotifyObservers(float damage, float speed,float time);
+    public void NotifyObservers();
 }
