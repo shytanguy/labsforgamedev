@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IMoveStrategy
 {
-    public void Move(Transform transform, float speed, Transform target);
+    public void Move(Rigidbody rigidbody, float speed, Transform target);
 }

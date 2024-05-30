@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
 
     public IMoveStrategy strategy= new FollowStrategy();
 
+    private Rigidbody _boxRigidBody;
+
     [SerializeField] private float TotalHp=100;
     private float _hp=100;
     [SerializeField] private GameObject brokenBox;
@@ -24,7 +26,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         GetComponent<MeshRenderer>().material.color = color;
-
+        _boxRigidBody = GetComponent<Rigidbody>();
         if (type == StrategyType.follow)
         {
             strategy = new FollowStrategy();
@@ -34,10 +36,12 @@ public class Enemy : MonoBehaviour
             strategy = new EscapeStrategy();
         }
         _hp = TotalHp;
+
+       
     }
     private void FixedUpdate()
     {
-        strategy.Move(transform, flyweight.Speed, flyweight.Target);
+        strategy.Move(_boxRigidBody, flyweight.Speed, flyweight.Target);
     }
 
     public void RemoveHp(float damage)
