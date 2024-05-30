@@ -7,15 +7,23 @@ public class Enemy : MonoBehaviour, IObserver
 {
     public static TargetFlyweight flyweight;
 
-    public Color color;
 
     public IMoveStrategy strategy= new FollowStrategy();
 
     private Rigidbody _boxRigidBody;
 
-    [SerializeField] private float TotalHp=100;
-    private float _hp=100;
+
     [SerializeField] private GameObject brokenBox;
+
+    [SerializeField] private GameObject _effect;
+
+    [SerializeField] private AudioClip _clip;
+
+    [SerializeField] private AudioSource source;
+
+    [SerializeField] private bool destroyAll=false;
+
+    [SerializeField] private float giveTime = 10f;
   [Serializable]  private enum StrategyType
     {
         follow,
@@ -25,7 +33,6 @@ public class Enemy : MonoBehaviour, IObserver
     [SerializeField] private StrategyType type;
     private void Start()
     {
-        GetComponent<MeshRenderer>().material.color = color;
         _boxRigidBody = GetComponent<Rigidbody>();
         if (type == StrategyType.follow)
         {
@@ -35,8 +42,9 @@ public class Enemy : MonoBehaviour, IObserver
         {
             strategy = new EscapeStrategy();
         }
-        _hp = TotalHp;
+
         EnemyBehaviourGlobal.instance.AddObserver(this);
+        EnemyBehaviourGlobal.instance.AddBox(gameObject);
        
     }
     private void FixedUpdate()
@@ -44,15 +52,20 @@ public class Enemy : MonoBehaviour, IObserver
         strategy.Move(_boxRigidBody, flyweight.Speed, flyweight.Target);
     }
 
-    public void RemoveHp(float damage)
+    public void DestroyBox()
     {
-        _hp -= TotalHp;
-
-        if (_hp <= 0)
+        EnemyBehaviourGlobal.instance.RemoveBox(gameObject);
+        Destroy(gameObject);
+        PointsCounter.instance.AddTimeAndPoints(giveTime);
+        if (destroyAll)
         {
-            Destroy(gameObject);
-            Instantiate(brokenBox, transform.position, transform.rotation);
+            EnemyBehaviourGlobal.instance.DestroyAll();
         }
+            source.PlayOneShot(_clip);
+            Instantiate(brokenBox, transform.position, transform.rotation);
+            Instantiate(_effect, transform.position, transform.rotation);
+     
+        
     }
 
     public void Observe()

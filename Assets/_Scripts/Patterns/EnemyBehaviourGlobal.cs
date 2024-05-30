@@ -8,6 +8,7 @@ public  class EnemyBehaviourGlobal: MonoBehaviour, IObservable
 
     private static List<IObserver> observers = new List<IObserver>();
 
+    private static List<GameObject> boxes = new List<GameObject>();
     public static EnemyBehaviourGlobal instance;
 
     private void Awake()
@@ -28,7 +29,22 @@ public  class EnemyBehaviourGlobal: MonoBehaviour, IObservable
             observer.Observe();
         }
     }
-
+    public void DestroyAll()
+    {
+        foreach (var box in boxes)
+        {
+            box.GetComponent<Enemy>().DestroyBox();
+            boxes.Remove(box);
+        }
+    }
+    public void AddBox(GameObject box)
+    {
+        boxes.Add(box);
+    }
+    public void RemoveBox(GameObject box)
+    {
+        boxes.Remove(box);
+    }
     public void RemoveObserver(IObserver iobserver)
     {
         observers.Remove(iobserver);

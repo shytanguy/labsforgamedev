@@ -26,13 +26,10 @@ public class SavingScript : MonoBehaviour
         {
             string json = File.ReadAllText(filePath);
             Wrapper<int> wrapper = JsonUtility.FromJson<Wrapper<int>>(json);
+            if (wrapper.intList != null) 
             records = wrapper.intList;
         }
-        else
-        {
-            File.Create(filePath);
-        }
-
+       
     }
     public static void AddRecord(int i)
     {

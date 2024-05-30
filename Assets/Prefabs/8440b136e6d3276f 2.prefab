@@ -62,11 +62,11 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 73b6bc9559114a8419388252158c9dbf, type: 2}
+      objectReference: {fileID: 2100000, guid: df94919ade4354f43aa064a67ae772ef, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f83654a6750fd04a96aad4676e97449,
         type: 3}
       propertyPath: m_Name
-      value: 8440b136e6d3276f
+      value: 8440b136e6d3276f 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3f83654a6750fd04a96aad4676e97449,
         type: 3}
@@ -113,10 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969a334d6e0f29b4081ff347267ce27e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brokenBox: {fileID: 1738699829699630602, guid: 9d8a406598367a14198f5df9c76434bf,
+  brokenBox: {fileID: 1738699829699630602, guid: f22f86aecda1da543bb6254b59e626e5,
     type: 3}
   _effect: {fileID: 3068217944771027417, guid: cfda600f7045aa64b9ff7abb8c34c3ba, type: 3}
-  _clip: {fileID: 8300000, guid: 27a0c8fcb621ede4f914e1a8498f224c, type: 3}
+  _clip: {fileID: 8300000, guid: 78cb83a2eb950824c90cd7d030a7eac8, type: 3}
   source: {fileID: -305123286616230624}
   destroyAll: 0
   giveTime: 10
