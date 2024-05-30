@@ -10,6 +10,6 @@ public class FlyweightFactory : MonoBehaviour
     [SerializeField] private Transform _Target;
     private void Awake()
     {
-        TargetScript.flyweight = new TargetFlyweight(_Target, _Speed);
+       Enemy.flyweight = new TargetFlyweight(_Target, _Speed);
     }
 }
