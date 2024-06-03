@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FlyweightFactory : MonoBehaviour
 {
-   
-   
-    [SerializeField] private Transform _Target;
+
+
+    [SerializeField] private FlyweightSO so;
     private void Awake()
     {
-        TargetScript.flyweight = new TargetFlyweight(_Target);
+        so.Load();
     }
 }

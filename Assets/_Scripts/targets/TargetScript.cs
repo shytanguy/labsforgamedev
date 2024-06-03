@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetScript : MonoBehaviour, IObserver
 {
 
-    public static TargetFlyweight flyweight;
+    public  FlyweightSO flyweight;
     [SerializeField] private float TotalHp=10;
 
     private float currentHp;
@@ -27,6 +27,8 @@ public class TargetScript : MonoBehaviour, IObserver
     [SerializeField] private AudioSource source;
 
     [SerializeField] private GameObject _effect;
+
+   
     void Start()
     {
         switch (type)
@@ -38,12 +40,14 @@ public class TargetScript : MonoBehaviour, IObserver
         }
         source = GetComponent<AudioSource>();
         GameManager.instance.AddObserver(this);
+      
+      
     }
 
     
     void FixedUpdate()
     {
-        moveStrategy.Move(rigidbody, _speed, flyweight.Target);
+        moveStrategy.Move(rigidbody, flyweight.Speed, flyweight.target);
     }
 
     public void RecieveDamage(float damage)
