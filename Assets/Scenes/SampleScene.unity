@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 9887167}
   - component: {fileID: 9887166}
   - component: {fileID: 9887171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: parent
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df9a2df95605e84fa715ec4482d942e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Target: {fileID: 9887170}
+  so: {fileID: 11400000, guid: b6f7b4c49db847747a7e939b22311c1a, type: 2}
 --- !u!4 &1297981447
 Transform:
   m_ObjectHideFlags: 0
@@ -1242,7 +1242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1775174172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 4049514512717058483}
   - component: {fileID: 8625822259710693658}
   - component: {fileID: 4855213527126048542}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere.5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2035,7 +2035,7 @@ GameObject:
   - component: {fileID: 2956627886590812544}
   - component: {fileID: 4445157024593599336}
   - component: {fileID: 98602686741942778}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 8994695885924825612}
   - component: {fileID: 8041756240583018619}
   - component: {fileID: 1090785282965480711}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere.4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2146,7 +2146,7 @@ GameObject:
   - component: {fileID: 2326304106697072781}
   - component: {fileID: 1229051401082992568}
   - component: {fileID: 69675873698714304}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2209,7 +2209,7 @@ GameObject:
   - component: {fileID: 2604503106908733540}
   - component: {fileID: 7117560300015153948}
   - component: {fileID: 279196682978765364}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2227,7 +2227,7 @@ GameObject:
   - component: {fileID: 8209141472239233733}
   - component: {fileID: 6628273689248472497}
   - component: {fileID: 326344491201170695}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2245,7 +2245,7 @@ GameObject:
   - component: {fileID: 2811401583499932048}
   - component: {fileID: 2010915020815819641}
   - component: {fileID: 645922272709520147}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2261,7 +2261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4063207333654717985}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Null
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2428,7 +2428,7 @@ GameObject:
   - component: {fileID: 6311654606220092762}
   - component: {fileID: 6745371801178844325}
   - component: {fileID: 7244214741997089065}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2553,7 +2553,7 @@ GameObject:
   - component: {fileID: 5199468399014373265}
   - component: {fileID: 7498795328804930416}
   - component: {fileID: 3607191486557051120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere.7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2571,7 +2571,7 @@ GameObject:
   - component: {fileID: 7527996385457696368}
   - component: {fileID: 2473466155453680887}
   - component: {fileID: 1736621246918076396}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2665,7 +2665,7 @@ GameObject:
   - component: {fileID: 5345433177012734964}
   - component: {fileID: 4529167360922999111}
   - component: {fileID: 1953921644493869056}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2683,7 +2683,7 @@ GameObject:
   - component: {fileID: 5237954526553807441}
   - component: {fileID: 3476381408126389515}
   - component: {fileID: 3726091918217232380}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere.6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2914,7 +2914,7 @@ GameObject:
   - component: {fileID: 926987518836400887}
   - component: {fileID: 6314605558430992099}
   - component: {fileID: 6531466308677653100}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2958,7 +2958,7 @@ GameObject:
   - component: {fileID: 3993642391256215605}
   - component: {fileID: 262212175023030759}
   - component: {fileID: 6737057977353079237}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torus.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2974,7 +2974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8258792138687660706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: planta
   m_TagString: Untagged
   m_Icon: {fileID: 0}

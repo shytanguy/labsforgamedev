@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8245a05f280910d48a104d29b3c35f4a, type: 3}
   m_Name: TargetFlyweight
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  Speed: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
+  target: {fileID: 0}
+  Speed: 5
+  Damage: 0
